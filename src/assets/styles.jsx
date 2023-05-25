@@ -1,23 +1,5 @@
 import styled, { css, keyframes } from "styled-components";
 
-export const AnimateBackground = keyframes`
-  0% {
-    transform: scaleY(1.2);
-  }
-  100% {
-    transform: scaleY(1);
-  }
-`;
-
-export const AnimateTrees = keyframes`
-  0% {
-    transform: translateY(400px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-`;
-
 export const keyboardFocus = css`
   :focus-visible {
     outline: 3px solid #9e4343;
@@ -96,13 +78,6 @@ export const StyledBackground = styled.div`
   position: fixed;
   width: 100vw;
   z-index: 7;
-
-  ${({ page }) =>
-    page !== "home" &&
-    css`
-      animation: ${AnimateBackground} 0.4s linear;
-      animation-iteration-count: 1;
-    `};
 `;
 
 export const StyledTrail = styled.svg`
@@ -111,29 +86,11 @@ export const StyledTrail = styled.svg`
   width: 100%;
   height: ${({ page }) => pageSizes[page]};
   z-index: 8;
-
-  ${({ page }) =>
-    page !== "home" &&
-    css`
-      animation: ${AnimateBackground} 0.4s linear;
-      animation-iteration-count: 1;
-    `};
-`;
-
-export const StyledTrees = styled.svg`
-  bottom: 20px;
-  width: 100%;
-  height: 350px;
-  position: fixed;
-  z-index: 9;
-
-  animation: ${AnimateTrees} 1s linear;
-  animation-iteration-count: 1;
 `;
 
 export const StyledPage = styled.div`
   background-color: #f1dade;
-  height: calc(100vh + 10px);
+  min-height: 100vh;
   z-index: 10;
 `;
 
@@ -272,6 +229,7 @@ export const StyledHeading2 = styled.h3`
   line-height: 100px;
   margin-block: 0;
   margin-left: -8px;
+  padding-bottom: 36px;
   text-transform: uppercase;
   z-index: 9;
 
@@ -350,16 +308,12 @@ export const Stack = styled.div`
 `;
 
 export const BubbleBelt = styled.div`
-  display: flex;
-  gap: 10px;
-  padding: 36px 0;
-
-  @media screen and (max-width: 699px) {
-    gap: 6px;
-  }
+  display: block;
+  padding-bottom: 10px;
 `;
 
 export const StyledBubble = styled.span`
+  display: inline-block;
   background-color: transparent;
   border: 1.5px solid #b8475b;
   border-radius: 50px;
@@ -368,6 +322,7 @@ export const StyledBubble = styled.span`
   gap: 10px;
   font-size: 18px;
   font-weight: 500;
+  margin: 4px 8px 4px 0;
   padding: 4px 16px;
 
   @media screen and (max-width: 699px) {
@@ -379,10 +334,19 @@ export const StyledBubble = styled.span`
 
 export const StyledProjects = styled.div`
   display: block;
-  text-align: center;
-  padding: 30vh 40px 0;
+  padding: 0 200px 0 400px;
 
-  ${StyledParagraph} {
-    font-size: 20px;
+  @media screen and (max-width: 1199px) {
+    padding-left: 300px;
+    padding-right: 100px;
+  }
+
+  @media screen and (max-width: 999px) {
+    padding-left: 100px;
+  }
+
+  @media screen and (max-width: 699px) {
+    padding-left: 40px;
+    padding-right: 40px;
   }
 `;
