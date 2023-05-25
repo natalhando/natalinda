@@ -9,21 +9,7 @@ import {
   StyledBackground,
 } from "../assets/styles";
 
-// import gsap, { ScrollTrigger } from "gsap";
-
 function Home() {
-  // useEffect(() => {
-  //   // gsap.to("#page2-trigger", {
-  //   //   duration: 2,
-  //   //   ease: "none",
-  //   //   transformOrigin: "bottom",
-  //   //   scaleY: 0.8,
-  //   //   scrollTrigger: {
-  //   //     trigger: "#page2-trigger",
-  //   //   },
-  //   // });
-  // }, []);
-
   return (
     <>
       <StyledBackground page="home" />
