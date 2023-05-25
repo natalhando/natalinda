@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { useDetectScroll } from "@smakss/react-scroll-direction";
 import Nav from "../components/Nav/Nav";
 import Home from "./Home";
 import AboutMe from "./AboutMe";
@@ -9,7 +8,6 @@ let ActivePage = Home;
 
 function Page() {
   const [activePage, setActivePage] = useState("home");
-  // const [scrollDir] = useDetectScroll({});
 
   const handleUpdatePage = (page) => {
     setActivePage(page);
