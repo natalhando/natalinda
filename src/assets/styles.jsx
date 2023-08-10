@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from "styled-components";
+import { Link } from "react-router-dom";
 
 export const keyboardFocus = css`
   :focus-visible {
@@ -23,7 +24,7 @@ export const StyledNav = styled.nav`
   padding: 16px 24px;
 `;
 
-export const StyledNavItem = styled.button`
+export const StyledNavItem = styled(Link)`
   ${keyboardFocus}
   background: none;
   border: none;
@@ -32,6 +33,7 @@ export const StyledNavItem = styled.button`
   font-family: "Inter", sans-serif;
   font-size: 18px;
   margin: 8px 12px;
+  text-decoration: none;
   border-radius: 4px;
 
   ::after {
