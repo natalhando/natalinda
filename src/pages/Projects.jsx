@@ -47,19 +47,16 @@ function Projects() {
               <Stack>
                 <MeiaNoiteWrapper>
                   <StyledMeiaNoites
-                    id="first"
                     src="assets/meia-noite.png"
                     alt="Cat looking for Natalia's projects"
                   />
 
                   <StyledMeiaNoites
-                    id="second"
                     src="assets/meia-noite.png"
                     alt="Cat looking for Natalia's projects"
                   />
 
                   <StyledMeiaNoites
-                    id="third"
                     src="assets/meia-noite.png"
                     alt="Cat looking for Natalia's projects"
                   />
