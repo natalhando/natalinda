@@ -14,7 +14,8 @@ function App() {
           <Route index element={<Home />} />
           <Route path="me" element={<AboutMe />} />
           <Route path="projects" element={<Projects />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/notfound" element={<NotFound />} />
+          <Route path="*" element={<Navigate to="/notfound" />} />
         </Route>
       </Routes>
     </BrowserRouter>
