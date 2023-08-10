@@ -3,12 +3,12 @@ import {
   StyledPage,
   Stack,
   StyledHeading2,
-  StyledHeading3,
-  StyledParagraph,
+  StyledHeading4,
   StyledBody,
   BubbleBelt,
   StyledBubble,
   HorizontalStack,
+  StyledParagraph,
 } from "../assets/styles";
 
 function AboutMe() {
@@ -18,7 +18,7 @@ function AboutMe() {
         <StyledBody>
           <HorizontalStack>
             <Stack>
-              <StyledHeading3>Hi, my name is</StyledHeading3>
+              <StyledHeading4>Hi, my name is</StyledHeading4>
               <StyledHeading2>
                 Natalia
                 <br />
