@@ -6,9 +6,9 @@ import {
   StyledProjects,
   StyledHeading3,
   StyledHeading4,
-  HorizontalStack,
+  CenteredStack,
   Stack,
-  StyledMeiaNoites,
+  StyledMeiaNoite,
   MeiaNoiteWrapper,
 } from "../assets/styles";
 
@@ -43,20 +43,20 @@ function Projects() {
       <StyledPage id="home">
         <StyledBody>
           {loading ? (
-            <HorizontalStack>
+            <CenteredStack>
               <Stack>
                 <MeiaNoiteWrapper>
-                  <StyledMeiaNoites
+                  <StyledMeiaNoite
                     src="assets/meia-noite.png"
                     alt="Cat looking for Natalia's projects"
                   />
 
-                  <StyledMeiaNoites
+                  <StyledMeiaNoite
                     src="assets/meia-noite.png"
                     alt="Cat looking for Natalia's projects"
                   />
 
-                  <StyledMeiaNoites
+                  <StyledMeiaNoite
                     src="assets/meia-noite.png"
                     alt="Cat looking for Natalia's projects"
                   />
@@ -66,7 +66,7 @@ function Projects() {
                   Meia noite is helping me find them.
                 </StyledHeading4>
               </Stack>
-            </HorizontalStack>
+            </CenteredStack>
           ) : (
             <StyledProjects>
               {projects?.map((project) => (

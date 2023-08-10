@@ -314,11 +314,17 @@ const loadingAnimation = keyframes`
 export const MeiaNoiteWrapper = styled.div`
   display: flex;
   gap: 10px;
+  margin-bottom: 40px;
+  justify-content: center;
 `;
 
 export const StyledMeiaNoites = styled.img`
-  width: 100px;
+  width: 260px;
   margin-bottom: 40px;
+`;
+
+export const StyledMeiaNoite = styled.img`
+  width: 100px;
 
   animation: ${loadingAnimation} 4s infinite ease-in-out;
 
@@ -328,6 +334,24 @@ export const StyledMeiaNoites = styled.img`
 
   &:nth-child(3) {
     animation-delay: 0.8s;
+  }
+`;
+
+export const CenteredStack = styled.div`
+  display: grid;
+  place-items: center;
+  padding: 160px 200px;
+  position: relative;
+  text-align: center;
+  z-index: 12;
+
+  @media screen and (max-width: 999px) {
+    display: block;
+    padding: 60px 120px;
+  }
+
+  @media screen and (max-width: 699px) {
+    padding: 40px;
   }
 `;
 
