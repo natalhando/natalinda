@@ -32,11 +32,11 @@ function AboutMe() {
             </Stack>
             <Stack>
               <StyledParagraph>
-                I'm currently working as a Design Technologist at{" "}
+                I'm currently working as a Software Engineer at{" "}
                 <a target={"_blank"} rel="noreferrer" href="https://carta.com/">
                   Carta
                 </a>
-                , building and maintaining the company's design system{" "}
+                , developing the company's fund administration product{" "}
                 <a
                   target={"_blank"}
                   rel="noreferrer"
