@@ -36,15 +36,7 @@ function AboutMe() {
                 <a target={"_blank"} rel="noreferrer" href="https://carta.com/">
                   Carta
                 </a>
-                , developing the company's fund administration product{" "}
-                <a
-                  target={"_blank"}
-                  rel="noreferrer"
-                  href="https://ink.carta.com/"
-                >
-                  ink
-                </a>
-                .
+                , developing the company's fund administration product.
                 <br />
                 <br />
                 I'm a multilingual computer scientist, you can talk to me about
