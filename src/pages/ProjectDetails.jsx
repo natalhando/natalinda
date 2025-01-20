@@ -102,7 +102,7 @@ const ProjectDetails = () => {
     };
 
     fetchData();
-  }, []);
+  }, [projectId]);
 
   return (
     <Shell>
