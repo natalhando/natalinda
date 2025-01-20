@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Shell from "../components/Shell/Shell";
+import { Link } from "react-router-dom";
 import tokens from "../assets/tokens";
 
 const Greeting = styled.span`
@@ -36,6 +37,16 @@ const Ornament = styled.img.attrs({
 `;
 
 const Anchor = styled.a`
+  color: ${tokens.bodyTextColor};
+  font-family: "Lato", serif;
+  font-size: 24px;
+
+  @media screen and (max-width: 680px) {
+    font-size: 20px;
+  }
+`;
+
+const StyledLink = styled(Link)`
   color: ${tokens.bodyTextColor};
   font-family: "Lato", serif;
   font-size: 24px;
@@ -83,7 +94,7 @@ function AboutMe() {
           and I have the cutest tabby cat named Zuko (yes, I'm an Avatar fan).
         </Text>
         <Text>
-          Feel free to check my <Anchor href="/resume">resume</Anchor>, and{" "}
+          Feel free to check my <StyledLink to="/resume">resume</StyledLink>, and{" "}
           <Anchor href="mailto:natalia_psilva@outlook.com">
             connect with me
           </Anchor>
