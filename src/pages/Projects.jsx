@@ -2,7 +2,16 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Shell from "../components/Shell/Shell";
 import Project from "../components/Project/Project";
+import Loader from "../components/Loader/Loader";
 import { fetchProjects } from "../contentful";
+
+const Ornament = styled.img.attrs({
+  src: "assets/ornament.png",
+  alt: "Ornament",
+})`
+  padding-top: 40px;
+  width: 200px;
+`;
 
 const ProjectsLayout = styled.div`
   display: flex;
@@ -11,15 +20,11 @@ const ProjectsLayout = styled.div`
   gap: 40px;
   height: calc(100vh - 24px - 40px);
   width: 40vw;
-`;
 
-const GIF = styled.img`
-  width: 40vw;
-`;
-
-const LoadingText = styled.span`
-  color: #f1dade;
-  font-size: 80px;
+  @media screen and (max-width: 920px) {
+    margin-top: 0;
+    width: 80vw;
+  }
 `;
 
 function Projects() {
@@ -40,15 +45,7 @@ function Projects() {
     <Shell>
       <ProjectsLayout>
         {loading ? (
-          <>
-            <LoadingText>
-              Grabbing the latest projects from the spirit world...
-            </LoadingText>
-            <GIF
-              src="assets/waiting.gif"
-              alt="GIF of Zuko impatiently waiting"
-            />
-          </>
+          <Loader />
         ) : (
           projects
             .sort((a, b) => new Date(b.date) - new Date(a.date))
@@ -58,12 +55,14 @@ function Projects() {
                 title={project.title}
                 description={project.shortDescription}
                 technologies={project.tags}
+                imageUrl={project.mainImage}
                 link={project.key}
                 date={project.date}
                 company={project.company}
               />
             ))
         )}
+        <Ornament />
       </ProjectsLayout>
     </Shell>
   );
