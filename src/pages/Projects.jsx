@@ -1,90 +1,71 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import Shell from "../components/Shell/Shell";
 import Project from "../components/Project/Project";
-import {
-  StyledPage,
-  StyledBody,
-  StyledProjects,
-  StyledHeading3,
-  StyledHeading4,
-  CenteredStack,
-  Stack,
-  StyledMeiaNoite,
-  MeiaNoiteWrapper,
-} from "../assets/styles";
+import { fetchProjects } from "../contentful";
 
-const contentful = require("contentful");
+const ProjectsLayout = styled.div`
+  display: flex;
+  margin-top: 200px;
+  flex-direction: column;
+  gap: 40px;
+  height: calc(100vh - 24px - 40px);
+  width: 40vw;
+`;
 
-const client = contentful.createClient({
-  space: "fd5935cudoxf",
-  environment: "master",
-  accessToken: process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN,
-});
+const GIF = styled.img`
+  width: 40vw;
+`;
+
+const LoadingText = styled.span`
+  color: #f1dade;
+  font-size: 80px;
+`;
 
 function Projects() {
-  const [projects, setProjects] = useState(null);
+  const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
-      client
-        .getEntries()
-        .then((response) => {
-          setProjects(response.items);
-          setLoading(false);
-        })
-        .catch(console.error);
+      const { entries, isLoading } = await fetchProjects();
+      setLoading(isLoading);
+      setProjects(entries);
     };
 
     fetchData();
   }, []);
 
   return (
-    <>
-      <StyledPage id="home">
-        <StyledBody>
-          {loading ? (
-            <CenteredStack>
-              <Stack>
-                <MeiaNoiteWrapper>
-                  <StyledMeiaNoite
-                    src="assets/meia-noite.png"
-                    alt="Cat looking for Natalia's projects"
-                  />
-
-                  <StyledMeiaNoite
-                    src="assets/meia-noite.png"
-                    alt="Cat looking for Natalia's projects"
-                  />
-
-                  <StyledMeiaNoite
-                    src="assets/meia-noite.png"
-                    alt="Cat looking for Natalia's projects"
-                  />
-                </MeiaNoiteWrapper>
-                <StyledHeading3>Wait a sec!</StyledHeading3>
-                <StyledHeading4>
-                  Meia noite is helping me find them.
-                </StyledHeading4>
-              </Stack>
-            </CenteredStack>
-          ) : (
-            <StyledProjects>
-              {projects?.map((project) => (
-                <Project
-                  imageSrc={`https:${project.fields.screenshot.fields.file.url}`}
-                  title={project.fields.title}
-                  description={project.fields.description}
-                  technologies={project.fields.technologies}
-                  github={project.fields.github}
-                  link={project.fields.link}
-                  key={project.fields.title}
-                />
-              ))}
-            </StyledProjects>
-          )}
-        </StyledBody>
-      </StyledPage>
-    </>
+    <Shell>
+      <ProjectsLayout>
+        {loading ? (
+          <>
+            <LoadingText>
+              Grabbing the latest projects from the spirit world...
+            </LoadingText>
+            <GIF
+              src="assets/waiting.gif"
+              alt="GIF of Zuko impatiently waiting"
+            />
+          </>
+        ) : (
+          projects
+            .sort((a, b) => new Date(b.date) - new Date(a.date))
+            .map((project) => (
+              <Project
+                key={project.key}
+                title={project.title}
+                description={project.shortDescription}
+                technologies={project.tags}
+                link={project.key}
+                date={project.date}
+                company={project.company}
+              />
+            ))
+        )}
+      </ProjectsLayout>
+    </Shell>
   );
 }
 
