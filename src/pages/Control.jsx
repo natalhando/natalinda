@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Nav from "../components/Nav/Nav";
 
-function Page() {
+function Control() {
   const currentPath = useLocation().pathname;
   console.log(currentPath);
 
@@ -21,11 +21,6 @@ function Page() {
           }
           nested={!ROOT_ROUTES.includes(currentPath)}
         />
-        {/* <Nav.Item
-          label="blog"
-          path="/blog"
-          isActive={currentPath === "/blog"}
-        /> */}
       </Nav>
 
       <Outlet />
@@ -33,4 +28,4 @@ function Page() {
   );
 }
 
-export default Page;
+export default Control;

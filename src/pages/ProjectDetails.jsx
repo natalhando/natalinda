@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import Shell from "../components/Shell/Shell";
+import Loader from "../components/Loader/Loader";
+import tokens from "../assets/tokens";
 import { fetchProjectByKey } from "../contentful";
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -15,14 +17,27 @@ const ProjectLayout = styled.div`
   gap: 10px;
   height: calc(100vh - 24px - 40px);
   width: 40vw;
+
+  @media screen and (max-width: 920px) {
+    margin-top: 40px;
+    width: 80vw;
+  }
+
+  @media screen and (max-width: 680px) {
+    margin-top: 0;
+  }
 `;
 
 const Title = styled.h1`
-  color: #f1dade;
+  color: ${tokens.bodyTextColor};
   font-family: "Lato", serif;
   font-size: 64px;
   margin-block-start: 0;
   margin-block-end: 0;
+
+  @media screen and (max-width: 680px) {
+    font-size: 32px;
+  }
 `;
 
 const Image = styled.img.attrs({ alt: "Project Image" })`
@@ -30,23 +45,26 @@ const Image = styled.img.attrs({ alt: "Project Image" })`
 `;
 
 const Anchor = styled.a`
-  color: #f1dade;
+  color: ${tokens.bodyTextColor};
   font-family: "Lato", serif;
   font-size: 24px;
 `;
 
 const Description = styled.p`
-  color: #ffffff;
   font-family: "Lato", serif;
   font-size: 20px;
 
   a {
-    color: #ffffff;
+    color: ${tokens.secondaryTextColor};
     font-family: "Lato", serif;
 
     &:hover {
-      color: #f1dade;
+      color: ${tokens.bodyTextColor};
     }
+  }
+
+  @media screen and (max-width: 680px) {
+    font-size: 18px;
   }
 `;
 
@@ -108,7 +126,7 @@ const ProjectDetails = () => {
     <Shell>
       <ProjectLayout>
         {loading ? (
-          <span>Loading...</span>
+          <Loader />
         ) : (
           <>
             <Title>{project.title}</Title>

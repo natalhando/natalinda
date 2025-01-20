@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import Shell from "../components/Shell/Shell";
+import tokens from "../assets/tokens";
 
-const ProjectsLayout = styled.div`
+const NotFoundLayout = styled.div`
   display: flex;
   margin-top: 200px;
   flex-direction: column;
@@ -15,18 +16,18 @@ const GIF = styled.img`
   width: 40vw;
 `;
 
-const LoadingText = styled.span`
-  color: #f1dade;
+const Text = styled.span`
+  color: ${tokens.bodyTextColor};
   font-size: 80px;
 `;
 
 function NotFound() {
   return (
     <Shell>
-      <ProjectsLayout>
-        <LoadingText>Oh no! Can't find what you're looking for</LoadingText>
+      <NotFoundLayout>
+        <Text>Oh no! Can't find what you're looking for</Text>
         <GIF src="assets/notfound.gif" alt="GIF of Zuko upset" />
-      </ProjectsLayout>
+      </NotFoundLayout>
     </Shell>
   );
 }
