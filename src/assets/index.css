@@ -1,9 +1,0 @@
-@font-face {
-  font-family: "Inter";
-  src: local("Inter"), url(./Inter-Regular.ttf) format("truetype");
-}
-
-body {
-  background-color: #1d1d1d;
-  color: #ffffff;
-}
