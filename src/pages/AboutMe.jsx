@@ -1,57 +1,75 @@
 import React from "react";
-import {
-  StyledPage,
-  Stack,
-  StyledHeading2,
-  StyledHeading4,
-  StyledBody,
-  BubbleBelt,
-  StyledBubble,
-  HorizontalStack,
-  StyledParagraph,
-} from "../assets/styles";
+import styled from "styled-components";
+import Shell from "../components/Shell/Shell";
+
+const Greeting = styled.span`
+  color: #f1dade;
+  font-family: "Berkshire Swash", serif;
+  font-style: normal;
+  font-size: 100px;
+  font-weight: 900;
+`;
+
+const Text = styled.p`
+  color: #f1dade;
+  font-family: "Lato", serif;
+  font-size: 24px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+`;
+
+const Ornament = styled.img.attrs({
+  src: "assets/ornament.png",
+  alt: "Ornament",
+})`
+  padding-top: 40px;
+  width: 200px;
+`;
+
+const Anchor = styled.a`
+  color: #f1dade;
+  font-family: "Lato", serif;
+  font-size: 24px;
+`;
+
+const AboutMeLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  height: calc(100vh - 24px - 40px);
+  width: 40vw;
+`;
 
 function AboutMe() {
   return (
-    <>
-      <StyledPage id="about-me">
-        <StyledBody>
-          <HorizontalStack>
-            <Stack>
-              <StyledHeading4>Hi, my name is</StyledHeading4>
-              <StyledHeading2>
-                Natalia
-                <br />
-                Pinheiro
-              </StyledHeading2>
-              <BubbleBelt>
-                <StyledBubble>Designer</StyledBubble>
-                <StyledBubble>Engineer</StyledBubble>
-                <StyledBubble>Writer</StyledBubble>
-              </BubbleBelt>
-            </Stack>
-            <Stack>
-              <StyledParagraph>
-                I'm currently working as a Software Engineer at{" "}
-                <a target={"_blank"} rel="noreferrer" href="https://carta.com/">
-                  Carta
-                </a>
-                , developing the company's fund administration product.
-                <br />
-                <br />
-                I'm a multilingual computer scientist, you can talk to me about
-                code, design, cats and traveling in Portuguese, English or
-                Spanish.
-                <br />
-                <br />
-                Trying to make things happen with a bit of enthusiasm, bias to
-                action and sense of humor.
-              </StyledParagraph>
-            </Stack>
-          </HorizontalStack>
-        </StyledBody>
-      </StyledPage>
-    </>
+    <Shell>
+      <AboutMeLayout>
+        <Greeting>Hey you</Greeting>
+        <Text>
+          I'm a writer, belly dancer and martial artist, and I'm passionate
+          about art, music, cats and seeing the world. I work a day job as
+          frontend software engineer at{" "}
+          <Anchor href="https://carta.com/" target="_blank">
+            Carta
+          </Anchor>
+          .
+        </Text>
+        <Text>
+          I'm a multilingual computer scientist, born, raised & based in Brazil,
+          and I have the cutest tabby cat named Zuko (yes, I'm an Avatar fan).
+        </Text>
+        <Text>
+          Feel free to check my <Anchor href="/resume">resume</Anchor>, and{" "}
+          <Anchor href="mailto:natalia_psilva@outlook.com">
+            connect with me
+          </Anchor>
+          .
+        </Text>
+        <Ornament />
+      </AboutMeLayout>
+    </Shell>
   );
 }
 
