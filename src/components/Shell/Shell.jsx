@@ -12,12 +12,26 @@ const StyledShell = styled.div`
   padding-left: 20px;
   width: 64vw;
   height: 100vh;
+
+  @media screen and (max-width: 920px) {
+    margin: 0 80px;
+  }
+
+  @media screen and (max-width: 680px) {
+    margin: 40px 20px 0;
+    width: 80vw;
+    height: calc(100vh - 200px);
+  }
 `;
 
 const StyledLinks = styled.div`
   display: flex;
   gap: 24px;
   padding-top: 40px;
+
+  @media screen and (max-width: 920px) {
+    display: none;
+  }
 `;
 
 const StyledLink = styled.a`
@@ -35,6 +49,10 @@ const SideOrnament = styled.img.attrs({
   top: 0;
   right: 4px;
   height: 100vh;
+
+  @media screen and (max-width: 920px) {
+    display: none;
+  }
 `;
 
 function Shell({ children }) {

@@ -6,6 +6,10 @@ import { fetchProjectTitleByKey } from "../../contentful";
 
 const Breadcrumb = styled.span`
   font-style: italic;
+
+  @media screen and (max-width: 920px) {
+    display: none;
+  }
 `;
 
 const StyledNavItem = styled(Link)`
@@ -18,6 +22,15 @@ const StyledNavItem = styled(Link)`
   margin: 8px 0;
   text-decoration: none;
   border-radius: 4px;
+
+  &:hover {
+    transition: all 0.4s;
+    transform: translateX(4px);
+
+    @media screen and (max-width: 920px) {
+      transform: unset;
+    }
+  }
 
   ${({ isActive }) =>
     isActive &&

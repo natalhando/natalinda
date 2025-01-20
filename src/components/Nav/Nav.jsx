@@ -9,6 +9,12 @@ const NavWrapper = styled.div`
   width: 30vw;
   height: 100vh;
   z-index: 11;
+
+  @media screen and (max-width: 920px) {
+    display: flex;
+    height: unset;
+    position: unset;
+  }
 `;
 
 const StyledNav = styled.nav`
@@ -19,6 +25,16 @@ const StyledNav = styled.nav`
   margin: auto 80px;
   height: 100%;
   flex-direction: column;
+
+  @media screen and (max-width: 920px) {
+    flex-direction: row;
+    gap: 16px;
+    margin: 40px 100px;
+  }
+
+  @media screen and (max-width: 680px) {
+    margin: 40px 40px;
+  }
 `;
 
 function Nav(props) {

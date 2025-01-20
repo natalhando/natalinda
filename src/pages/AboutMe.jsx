@@ -8,6 +8,10 @@ const Greeting = styled.span`
   font-style: normal;
   font-size: 100px;
   font-weight: 900;
+
+  @media screen and (max-width: 680px) {
+    font-size: 60px;
+  }
 `;
 
 const Text = styled.p`
@@ -16,6 +20,10 @@ const Text = styled.p`
   font-size: 24px;
   margin-block-start: 0;
   margin-block-end: 0;
+
+  @media screen and (max-width: 680px) {
+    font-size: 20px;
+  }
 `;
 
 const Ornament = styled.img.attrs({
@@ -30,6 +38,10 @@ const Anchor = styled.a`
   color: #f1dade;
   font-family: "Lato", serif;
   font-size: 24px;
+
+  @media screen and (max-width: 680px) {
+    font-size: 20px;
+  }
 `;
 
 const AboutMeLayout = styled.div`
@@ -38,8 +50,13 @@ const AboutMeLayout = styled.div`
   align-items: flex-start;
   justify-content: center;
   gap: 20px;
-  height: calc(100vh - 24px - 40px);
+  height: calc(100vh - 64px);
   width: 40vw;
+
+  @media screen and (max-width: 920px) {
+    width: 80vw;
+    height: 100%;
+  }
 `;
 
 function AboutMe() {
