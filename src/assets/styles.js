@@ -9,53 +9,41 @@ export const keyboardFocus = css`
 `;
 
 export const NavWrapper = styled.div`
-  background-color: #f1dade;
+  background-color: #1d1d1d;
   display: block;
   position: fixed;
-  width: 100vw;
+  width: 30vw;
+  height: 100vh;
   z-index: 11;
 `;
 
 export const StyledNav = styled.nav`
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   justify-content: center;
-  gap: 24px;
-  padding: 16px 24px;
+  gap: 2px;
+  margin: auto 80px;
+  height: 100%;
+  flex-direction: column;
 `;
 
 export const StyledNavItem = styled(Link)`
   ${keyboardFocus}
   background: none;
   border: none;
-  color: #b8475b;
+  color: #f1dade;
   cursor: pointer;
   font-family: "Inter", sans-serif;
-  font-size: 18px;
-  margin: 8px 12px;
+  font-size: 20px;
+  margin: 8px 0;
   text-decoration: none;
   border-radius: 4px;
-
-  ::after {
-    content: "";
-    border-bottom: 2px solid #b8475b;
-    display: block;
-    height: 8px;
-    margin-left: -12px;
-    opacity: 0;
-    width: calc(100% + 24px);
-  }
-
-  &:hover {
-    transition: all 0.4s;
-    font-weight: 700;
-  }
 
   ${({ isActive }) =>
     isActive &&
     css`
       ::after {
-        opacity: 1;
+        color: #000080;
       }
     `}
 `;
@@ -222,7 +210,7 @@ export const StyledInfo = styled.div`
 
 export const StyledHeading2 = styled.h2`
   color: #6e2b36;
-  font-family: "Inter", sans-serif;
+  font-family: "Berkshire Swash", serif;
   font-style: normal;
   font-size: 126px;
   font-weight: 900;
@@ -230,7 +218,6 @@ export const StyledHeading2 = styled.h2`
   margin-block: 0;
   margin-left: -8px;
   padding-bottom: 36px;
-  text-transform: uppercase;
   z-index: 9;
 
   @media screen and (max-width: 1300px) {

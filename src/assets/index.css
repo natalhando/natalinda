@@ -1,9 +1,8 @@
 @font-face {
-  font-family: "Francois One";
-  src: local("Francois One"), url(./FrancoisOne-Regular.ttf) format("truetype");
-}
-
-@font-face {
   font-family: "Inter";
   src: local("Inter"), url(./Inter-Regular.ttf) format("truetype");
+}
+
+body {
+  background-color: #1d1d1d;
 }

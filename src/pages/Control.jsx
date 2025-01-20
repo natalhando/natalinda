@@ -4,6 +4,9 @@ import Nav from "../components/Nav/Nav";
 
 function Page() {
   const currentPath = useLocation().pathname;
+  console.log(currentPath);
+
+  const ROOT_ROUTES = ["/", "/me", "/projects", "/notfound", "/resume"];
 
   return (
     <>
@@ -13,8 +16,16 @@ function Page() {
         <Nav.Item
           label="projects"
           path="/projects"
-          isActive={currentPath === "/projects"}
+          isActive={
+            currentPath === "/projects" || !ROOT_ROUTES.includes(currentPath)
+          }
+          nested={!ROOT_ROUTES.includes(currentPath)}
         />
+        {/* <Nav.Item
+          label="blog"
+          path="/blog"
+          isActive={currentPath === "/blog"}
+        /> */}
       </Nav>
 
       <Outlet />

@@ -1,44 +1,96 @@
 import React from "react";
 import styled from "styled-components";
-import { BubbleBelt, StyledBubble, StyledParagraph } from "../../assets/styles";
+import { Link } from "react-router-dom";
 
-const StyledProject = styled.div`
-  padding-bottom: 40px;
+const Title = styled.h2`
+  color: #f1dade;
+  font-family: "Lato", serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
 `;
 
-const StyledImage = styled.img`
-  height: 400px;
-  border: 4px solid #b8475b;
+const Year = styled.span`
+  color: #f1dade;
+  font-size: 14px;
+`;
 
-  @media screen and (max-width: 699px) {
-    width: 100%;
-    height: unset;
+const Company = styled.span`
+  color: #f1dade;
+  font-size: 14px;
+  text-transform: uppercase;
+`;
+
+const Description = styled.p`
+  color: #ffffff;
+  font-family: "Lato", serif;
+  font-size: 18px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+`;
+
+const Belt = styled.div`
+  display: flex;
+  gap: 4px;
+  padding-bottom: 10px;
+`;
+
+const Spread = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+`;
+
+const Hashtag = styled.span`
+  color: #ffffff;
+`;
+
+const Tag = styled.span`
+  color: #f1dade;
+  font-family: "Lato", serif;
+  font-size: 16px;
+  font-weight: 500;
+`;
+
+const StyledProject = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+
+    ${Title}, ${Year} {
+      color: #f091a1;
+    }
   }
 `;
 
 function Project(props) {
-  const { imageSrc, title, description, technologies, github, link } = props;
-
-  const technologiesArray = technologies.split(", ");
+  const { title, description, technologies = [], link, date, company } = props;
 
   return (
-    <StyledProject>
-      <StyledImage src={imageSrc} alt={title} />
-      <StyledParagraph>
-        <a href={link}>
-          <h2>{title}</h2>
-        </a>
-        <a href={github} target="_blank" rel="noreferrer">
-          Github ↗
-        </a>
+    <StyledProject to={`/${link}`}>
+      <Spread>
+        <Title>{title}</Title>
+        <Year>{date}</Year>
+      </Spread>
 
-        <p>{description}</p>
-      </StyledParagraph>
-      <BubbleBelt>
-        {technologiesArray.map((technology) => (
-          <StyledBubble>{technology}</StyledBubble>
+      <Spread>
+        <Description>{description}</Description>
+        <Company>{company}</Company>
+      </Spread>
+
+      <Belt>
+        {technologies.map((technology) => (
+          <Tag>
+            <Hashtag>#</Hashtag>
+            {technology}
+          </Tag>
         ))}
-      </BubbleBelt>
+      </Belt>
     </StyledProject>
   );
 }
