@@ -69,7 +69,7 @@ const Description = styled.p`
 `;
 
 const Ornament = styled.img.attrs({
-  src: "assets/ornament.png",
+  src: "../assets/ornament.png",
   alt: "Ornament",
 })`
   padding-top: 40px;

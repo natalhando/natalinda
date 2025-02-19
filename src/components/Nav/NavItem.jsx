@@ -49,13 +49,8 @@ function NavItem(props) {
   const { projectId } = useParams();
 
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await fetchProjectTitleByKey(projectId);
-      setBreadcrumb(data);
-    };
-
-    if (nested) {
-      fetchData();
+    if (path === "/projects" && projectId) {
+      setBreadcrumb(projectId);
     }
   }, [projectId, nested]);
 
