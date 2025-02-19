@@ -51,7 +51,7 @@ function NavItem(props) {
     if (path === "/projects" && projectId) {
       setBreadcrumb(projectId);
     }
-  }, [projectId, nested]);
+  }, [projectId, path]);
 
   return (
     <StyledNavItem to={path} isActive={isActive} {...otherProps}>
