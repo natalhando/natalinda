@@ -5,7 +5,7 @@ import Projects from "./pages/Projects";
 import NotFound from "./pages/NotFound";
 import Resume from "./pages/Resume";
 import ProjectDetails from "./pages/ProjectDetails";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./assets/index.css";
 
 function App() {

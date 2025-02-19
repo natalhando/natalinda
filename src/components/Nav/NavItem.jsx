@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import { Link, useParams } from "react-router-dom";
-import { fetchProjectTitleByKey } from "../../contentful";
 import tokens from "../../assets/tokens";
 
 const Breadcrumb = styled.span`
