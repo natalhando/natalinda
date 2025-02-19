@@ -37,7 +37,7 @@ const StyledLink = styled.a`
 `;
 
 const SideOrnament = styled.img.attrs({
-  src: "assets/drawings.png",
+  src: "../assets/drawings.png",
   alt: "Ornament",
 })`
   position: fixed;
