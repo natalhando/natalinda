@@ -56,7 +56,7 @@ function Projects() {
                 description={project.shortDescription}
                 technologies={project.tags}
                 imageUrl={project.mainImage}
-                link={project.key}
+                link={`projects/${project.key}`}
                 date={project.date}
                 company={project.company}
               />

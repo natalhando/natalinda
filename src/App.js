@@ -5,7 +5,7 @@ import Projects from "./pages/Projects";
 import NotFound from "./pages/NotFound";
 import Resume from "./pages/Resume";
 import ProjectDetails from "./pages/ProjectDetails";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./assets/index.css";
 
 function App() {
@@ -16,10 +16,10 @@ function App() {
           <Route index element={<Home />} />
           <Route path="me" element={<AboutMe />} />
           <Route path="projects" element={<Projects />} />
-          <Route path=":projectId" element={<ProjectDetails />} />
+          <Route path="projects/:projectId" element={<ProjectDetails />} />
           <Route path="notfound" element={<NotFound />} />
           <Route path="resume" element={<Resume />} />
-          <Route path="*" element={<Navigate to="notfound" />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>

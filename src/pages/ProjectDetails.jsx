@@ -69,7 +69,7 @@ const Description = styled.p`
 `;
 
 const Ornament = styled.img.attrs({
-  src: "assets/ornament.png",
+  src: "../assets/ornament.png",
   alt: "Ornament",
 })`
   padding-top: 40px;
@@ -102,6 +102,12 @@ const options = {
         {node.content[0].value}
       </Anchor>
     ),
+    [BLOCKS.EMBEDDED_ASSET]: (node) => {
+      const { file, title, description } = node.data.target.fields;
+      return (
+        <Image src={file.url} alt={description || title || "Embedded Asset"} />
+      );
+    },
   },
 };
 

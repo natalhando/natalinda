@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import { Link, useParams } from "react-router-dom";
-import { fetchProjectTitleByKey } from "../../contentful";
 import tokens from "../../assets/tokens";
 
 const Breadcrumb = styled.span`
@@ -49,15 +48,10 @@ function NavItem(props) {
   const { projectId } = useParams();
 
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await fetchProjectTitleByKey(projectId);
-      setBreadcrumb(data);
-    };
-
-    if (nested) {
-      fetchData();
+    if (path === "/projects" && projectId) {
+      setBreadcrumb(projectId);
     }
-  }, [projectId, nested]);
+  }, [projectId, path]);
 
   return (
     <StyledNavItem to={path} isActive={isActive} {...otherProps}>
