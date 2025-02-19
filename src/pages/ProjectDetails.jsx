@@ -102,6 +102,12 @@ const options = {
         {node.content[0].value}
       </Anchor>
     ),
+    [BLOCKS.EMBEDDED_ASSET]: (node) => {
+      const { file, title, description } = node.data.target.fields;
+      return (
+        <Image src={file.url} alt={description || title || "Embedded Asset"} />
+      );
+    },
   },
 };
 
