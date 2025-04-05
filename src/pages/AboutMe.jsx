@@ -77,7 +77,7 @@ function AboutMe() {
       <AboutMeLayout>
         <Greeting>Hey you</Greeting>
         <Text>
-          I'm a writer, belly dancer and martial artist, and I'm passionate
+          I'm a writer and belly dancer, and I'm passionate
           about art, music, cats and seeing the world. I work a day job as
           frontend software engineer at{" "}
           <Anchor

@@ -57,27 +57,49 @@ const fetchProjectByKey = async (key) => {
   }
 };
 
-const fetchProjectTitleByKey = async (key) => {
+const fetchBlogPosts = async () => {
   try {
     const response = await client.getEntries({
-      content_type: "projectEntries",
+      content_type: "blogPosts",
+    });
+    const entries = response.items.map((item) => ({
+      id: item.sys.id,
+      key: item.fields.key,
+      title: item.fields.title,
+      description: item.fields.description,
+      content: item.fields.content,
+      date: item.fields.date,
+    }));
+    console.log(entries)
+    return { entries, isLoading: false };
+  } catch (error) {
+    console.error("Error fetching blogposts:", error);
+    return { entries: [], isLoading: false };
+  }
+};
+
+const fetchBlogPostByKey = async (key) => {
+  try {
+    const response = await client.getEntries({
+      content_type: "blogPosts",
       "fields.key": key,
     });
 
     if (response.items.length > 0) {
-      console.log("deu simmm");
       const item = response.items[0];
-      const title = item.fields.title;
-      console.log("o titulo", title);
-      return title;
+      return {
+        id: item.sys.id,
+        key: item.fields.key,
+        title: item.fields.title,
+        description: item.fields.description,
+        content: item.fields.content,
+      };
     }
 
     return null;
   } catch (error) {
-    console.log("num deu");
-    console.error("Error fetching title by key:", error);
+    console.error("Error fetching post by key:", error);
     return null;
   }
 };
-
-export { fetchProjects, fetchProjectByKey, fetchProjectTitleByKey };
+export { fetchProjects, fetchProjectByKey, fetchBlogPosts, fetchBlogPostByKey };

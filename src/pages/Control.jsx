@@ -1,12 +1,10 @@
 import React from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useParams, useLocation } from "react-router-dom";
 import Nav from "../components/Nav/Nav";
 
 function Control() {
   const currentPath = useLocation().pathname;
-  console.log(currentPath);
-
-  const ROOT_ROUTES = ["/", "/me", "/projects", "/notfound", "/resume"];
+  const {projectId, blogPostId } = useParams();
 
   return (
     <>
@@ -17,9 +15,15 @@ function Control() {
           label="projects"
           path="/projects"
           isActive={
-            currentPath === "/projects" || !ROOT_ROUTES.includes(currentPath)
+            currentPath === "/projects" || projectId
           }
-          nested={!ROOT_ROUTES.includes(currentPath)}
+          nested={projectId}
+        />
+        <Nav.Item
+          label="blog"
+          path="/blog"
+          isActive={currentPath === "/blog" || blogPostId}
+          nested={blogPostId}
         />
       </Nav>
 
