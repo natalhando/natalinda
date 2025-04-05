@@ -45,19 +45,19 @@ const StyledNavItem = styled(Link)`
 function NavItem(props) {
   const { label, path = "/", nested, isActive, ...otherProps } = props;
   const [breadcrumb, setBreadcrumb] = useState(null);
-  const { projectId } = useParams();
+  const { projectId, blogPostId } = useParams();
 
   useEffect(() => {
-    if (path === "/projects" && projectId) {
-      setBreadcrumb(projectId);
+    if (blogPostId || projectId) {
+      setBreadcrumb(blogPostId ?? projectId);
     }
-  }, [projectId, path]);
+  }, [projectId, blogPostId]);
 
   return (
     <StyledNavItem to={path} isActive={isActive} {...otherProps}>
       {label}
       <Breadcrumb>
-        {breadcrumb && projectId && nested && ` / ${breadcrumb}`}
+        {breadcrumb && nested && ` / ${breadcrumb}`}
       </Breadcrumb>
     </StyledNavItem>
   );
