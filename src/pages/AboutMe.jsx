@@ -79,7 +79,7 @@ function AboutMe() {
         <Text>
           I'm a writer and belly dancer, and I'm passionate
           about art, music, cats and seeing the world. I work a day job as
-          frontend software engineer at{" "}
+          software engineer at{" "}
           <Anchor
             href="https://carta.com/"
             target="_blank"
