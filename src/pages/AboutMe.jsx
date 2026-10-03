@@ -79,7 +79,7 @@ function AboutMe() {
         <Text>
           I'm a writer and belly dancer, and I'm passionate
           about art, music, cats and seeing the world. I work a day job as
-          software engineer at{" "}
+          product engineer at{" "}
           <Anchor
             href="https://carta.com/"
             target="_blank"
@@ -91,7 +91,7 @@ function AboutMe() {
         </Text>
         <Text>
           I'm a multilingual computer scientist, born, raised & based in Brazil,
-          and I have the cutest tabby cat named Zuko (yes, I'm an Avatar fan).
+          and I share a home with the prettiest cats in the world, Aurora and Toph.
         </Text>
         <Text>
           Feel free to check my <StyledLink to="/resume">resume</StyledLink>, and{" "}
